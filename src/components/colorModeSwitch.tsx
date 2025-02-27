@@ -1,26 +1,16 @@
 import { Switch } from "@chakra-ui/react";
 import { useColorMode } from "@/components/ui/color-mode";
-import { useState } from "react";
 
 const ColorModeSwitch = () => {
-  const { toggleColorMode, colorMode } = useColorMode();
-  const [checked, setChecked] = useState(false);
+  const { toggleColorMode } = useColorMode();
 
   return (
-    <Switch.Root
-      onChange={toggleColorMode}
-      colorPalette={"green"}
-      checked={checked}
-      onCheckedChange={(e) => setChecked(e.checked)}
-    >
+    <Switch.Root onChange={toggleColorMode} colorPalette={"green"}>
       <Switch.HiddenInput />
       <Switch.Control>
         <Switch.Thumb />
       </Switch.Control>
-      <Switch.Label>
-        {" "}
-        {colorMode === "light" ? "Light Mode" : "Dark Mode"}
-      </Switch.Label>
+      <Switch.Label> Dark Mode</Switch.Label>
     </Switch.Root>
   );
 };
