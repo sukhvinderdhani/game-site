@@ -3,14 +3,9 @@ import { Button, SimpleGrid, Spinner, Text } from "@chakra-ui/react";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
 import GameCardContainer from "./GameCardContainer";
-import { GameQuery } from "@/App";
 import React from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import InfiniteScroll from "react-infinite-scroll-component";
-
-interface Props {
-  gameQuery: GameQuery;
-}
 
 // Error Fallback Component
 const ErrorFallback = ({
@@ -31,9 +26,8 @@ const ErrorFallback = ({
   </div>
 );
 
-const GameGrid = ({ gameQuery }: Props) => {
-  const { data, error, isLoading, fetchNextPage, hasNextPage } =
-    useGames(gameQuery);
+const GameGrid = () => {
+  const { data, error, isLoading, fetchNextPage, hasNextPage } = useGames();
 
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8];
 
